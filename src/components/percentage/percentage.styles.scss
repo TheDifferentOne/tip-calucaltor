@@ -1,0 +1,16 @@
+@import "../../scss/colors";
+
+button {
+    background-color: map-get($map: $colors, $key: dark-cyan);
+    color: white;
+    font-size: x-large;
+    font-weight: 700;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.6rem;
+}
+
+.clicked {
+    background-color: map-get($map: $colors, $key: strong-cyan);
+    color: map-get($map: $colors, $key: dark-cyan);
+}

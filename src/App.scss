@@ -1,0 +1,169 @@
+@import "./scss/colors";
+@import "./scss/functions";
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Space Mono";
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: map-get($colors, "light-cyan");
+    //! Font not applied (CORB issue)
+    font-family: "Space Mono";
+}
+
+input {
+    font-size: 2.4rem;
+    color: map-get($colors, "dark-cyan");
+    border: none;
+    outline: none;
+    background: transparent;
+    text-align: right;
+    font-weight: 700;
+}
+
+div.active {
+    border: map-get($map: $colors, $key: strong-cyan) 2px solid;
+}
+
+.show {
+    display: block !important;
+}
+
+.red-border {
+    border: red 2px solid !important;
+}
+
+.App {
+    @media screen and (min-width: rem-to-pixels(100)) {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .logo {
+        display: block;
+        margin-inline: auto;
+        padding-block: 4rem;
+    }
+
+    .container {
+        background: white;
+        padding: 3rem;
+        border-top-left-radius: 3rem;
+        border-top-right-radius: 3rem;
+
+        @media screen and (min-width: rem-to-pixels(55)) {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            width: rem-to-pixels(55);
+        }
+
+        @media screen and (min-width: rem-to-pixels(100)) {
+            width: rem-to-pixels(90);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 4rem;
+            border-radius: 3rem;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            .result,
+            #input-with-error > div {
+                margin: 0;
+            }
+        }
+    }
+
+    h2 {
+        color: map-get($map: $colors, $key: "dark-grayish-cyan");
+        font-weight: 700;
+    }
+
+    #input-with-error {
+        position: relative;
+
+        .error {
+            color: red;
+            position: absolute;
+            right: 0;
+            top: -2rem;
+            display: none;
+        }
+    }
+
+    .result {
+        background-color: map-get($map: $colors, $key: dark-cyan);
+        padding: 3.5rem 2rem 2rem;
+        border-radius: 2rem;
+        margin-top: 4rem;
+        display: flex;
+        flex-direction: column;
+
+        div {
+            margin-block-end: 3rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        h2 {
+            color: white;
+            margin-block-end: 0.6rem;
+        }
+        h3 {
+            color: map-get($map: $colors, $key: dark-grayish-cyan);
+            font-size: small;
+        }
+
+        p {
+            font-size: xx-large;
+            grid-column-start: 2;
+            grid-row: 1 / span 2;
+            text-align: right;
+            color: map-get($map: $colors, $key: light-cyan2);
+            font-weight: 700;
+        }
+
+        button {
+            background: map-get($map: $colors, $key: dark-cyan2);
+            border: none;
+            color: map-get($map: $colors, $key: dark-cyan);
+            font-weight: 700;
+            font-size: large;
+            width: 100%;
+            padding-block: 1rem;
+            border-radius: 0.6rem;
+            margin-block-start: auto;
+        }
+    }
+
+    button:hover {
+        cursor: pointer;
+        background: map-get($map: $colors, $key: light-cyan2);
+        color: map-get($map: $colors, $key: dark-cyan);
+    }
+}

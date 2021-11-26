@@ -1,0 +1,24 @@
+@import "../../scss/colors";
+
+.input-with-icon {
+    background: map-get($colors, "light-grayish-cyan");
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: 0.8rem 2rem;
+    border: transparent 2px solid;
+
+    img {
+        height: 100%;
+    }
+
+    input {
+        width: 90%;
+    }
+}
+
+::placeholder {
+    color: map-get($map: $colors, $key: dark-grayish-cyan2);
+}

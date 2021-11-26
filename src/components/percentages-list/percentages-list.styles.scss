@@ -1,0 +1,26 @@
+@import "../../scss/colors";
+@import "../../scss/functions";
+
+.PercentagesList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem 1.2rem;
+    margin-block: 1rem 2rem;
+
+    @media screen and (min-width: rem-to-pixels(50)) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    input {
+        margin: 0;
+        padding-inline: 1.5rem;
+        background: map-get($colors, "light-grayish-cyan");
+        border-radius: 0.6rem;
+        width: 100%;
+        border: transparent 2px solid;
+
+        &.active {
+            border: map-get($map: $colors, $key: strong-cyan) 2px solid;
+        }
+    }
+}
